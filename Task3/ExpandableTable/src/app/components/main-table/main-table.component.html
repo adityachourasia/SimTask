@@ -1,0 +1,27 @@
+<p>main-table works!</p>
+
+<table class="table table-striped table-hover">
+    <tbody>
+        <tr *ngFor="let row of data.rows">
+            <td>
+                {{row.id}}
+            </td>
+            <td>
+                {{row.text1}}
+            </td>
+            <td>
+                {{row.text2}}
+            </td>
+            <td>
+                {{row.children}}
+            </td>
+            <td>
+                <app-nested-row [children]="row.children"></app-nested-row>
+            </td>
+        </tr>
+
+
+
+
+    </tbody>
+</table>
