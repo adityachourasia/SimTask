@@ -1,0 +1,43 @@
+<p>travel works!</p>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <th>Ticket</th>
+    <th>Value</th>
+    <th>Action</th>
+  </thead>
+</table>
+
+<form [formGroup]="signInTicket" (ngSubmit)="onSignInSubmit()">
+  <label for="signInTicket">Ticket Sign In</label>
+  <input formControlName="signInTicketId"  id="ticketsignin" name="ticketsignin" type="text" />
+  <button type="submit">SignIn</button>
+</form>
+
+<form [formGroup]="signOutTicket" (ngSubmit)="onSignOutSubmit()">
+  <label for="signOutTicket">Ticket Sign In</label>
+  <input formControlName="signOutTicketId" id="ticketsignout" name="ticketsignout" type="text" />
+  <button type="submit">SignOut</button>
+</form>
+
+<br />
+<table class="table table-striped table-hover">
+  <thead>
+    <th>Ticketid</th>
+    <th>FromStation</th>
+    <th>ToStation</th>
+    <th>IssuedTime</th>
+    <th>Fare</th>
+    <th>Status</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ticket of tickets">
+      <td>{{ ticket.ticketId }}</td>
+      <td>{{ ticket.fromStation }}</td>
+      <td>{{ ticket.toStation }}</td>
+      <td>{{ ticket.issuedTimeStamp }}</td>
+      <td>{{ ticket.fare }}</td>
+      <td>{{ ticket.status }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,76 @@
+
+<!-- <a routerLink="/"><button class="btn btn-success pull-right" >Home</button></a> -->
+
+<!-- <br> -->
+
+<div class="container">
+  <form [formGroup]="journeyForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="fromStation" class="form-label">From Station</label>
+      <select
+        formControlName="fromStation"
+        class="form-select form-select-lg"
+        name="fromStation"
+        id="fromStation"
+      >
+        <option *ngFor="let station of stations" [ngValue]="station">
+          {{ station.stationName }}
+        </option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="toStation" class="form-label">To Station</label>
+      <select
+        formControlName="toStation"
+        class="form-select form-select-lg"
+        name="toStation"
+        id="toStation"
+      >
+        <option *ngFor="let station of stations" [ngValue]="station">
+          {{ station.stationName }}
+        </option>
+      </select>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <button class="btn btn-outline-dark btn-lg px-5" type="submit">
+          Book
+        </button>
+      </div>
+      <div class="col">
+        <!-- <div class="col"> -->
+        Total Fare: {{ totalFare }}
+        <!-- </div> -->
+      </div>
+    </div>
+  </form>
+
+  <br />
+
+  <table class="table table-striped table-hover" *ngIf="bookedTicket != null">
+    <tbody>
+      <tr>
+        <td>Ticket Id</td>
+        <td>{{ bookedTicket.ticketId }}</td>
+      </tr>
+      <tr>
+        <td>From</td>
+        <td>{{ bookedTicket.fromStation }}</td>
+      </tr>
+      <tr>
+        <td>To</td>
+        <td>{{ bookedTicket.toStation }}</td>
+      </tr>
+      <tr>
+        <td>Price</td>
+        <td>{{ bookedTicket.fare }}</td>
+      </tr>
+      <tr>
+        <td>Expiry Time</td>
+        <td>{{ bookedTicket.issuedTimeStamp }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
